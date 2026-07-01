@@ -1,44 +1,35 @@
 # Adult Census Income Predictor
 
-A modern, full-stack web application that predicts whether an individual's annual income exceeds $50K based on census demographic data. 
+A modern, static web application that predicts whether an individual's annual income exceeds $50K based on census demographic data. 
 
-This project was built with a premium "glassmorphism" frontend design and includes a serverless Python backend API, ready to be deployed on Vercel.
+This project was built with a premium, sleek Landio-inspired dark mode frontend design, perfectly tailored for high-conversion landing pages.
 
-## 🚀 Features
-- **Modern UI/UX**: Built with vanilla HTML/CSS/JS, featuring animated backgrounds, a dark-mode theme, and responsive glassmorphism elements.
-- **Python Backend API**: A Flask-based serverless function built for Vercel, designed to serve a Machine Learning model (e.g., Random Forest) for real-time predictions.
-- **Dynamic Form Handling**: JavaScript intercepts form submissions, displays smooth loading states, and seamlessly handles API responses.
+## Features
+- **Modern UI/UX**: Built with vanilla HTML/CSS/JS, featuring a premium dark-mode theme, minimal borders, and high-contrast typography.
+- **Dynamic Form Handling**: JavaScript intercepts form submissions, displays smooth loading states, and processes the mock prediction engine seamlessly without requiring a backend.
+- **Fully Static Deployment**: Designed to run entirely in the browser, making it infinitely scalable and free to host.
 
-## 📁 Project Structure
+## Project Structure
 ```
-├── api/
-│   └── index.py         # Flask serverless function for Vercel deployment
 ├── index.html           # Main frontend form
-├── style.css            # Premium glassmorphism and animated styling
-├── script.js            # Form handling and API fetch logic
-└── requirements.txt     # Python dependencies for the Vercel backend
+├── style.css            # Premium dark mode Landio styling
+├── script.js            # Form handling and mock prediction logic
+└── README.md            # Documentation
 ```
 
-## 🛠️ Deployment (Vercel)
+## Deployment (GitHub Pages)
 
-This project is fully structured for instant deployment on [Vercel](https://vercel.com/):
-1. Create a new project on Vercel and import this GitHub repository.
-2. Ensure your trained model `best_model_random_forest.pkl` is placed inside the `api/` directory (ignored by git due to size limits or privacy, so you might need to upload it or generate it dynamically).
-3. Vercel will automatically build the static frontend files and map the `api/index.py` file to the `/api/predict` serverless endpoint.
-4. Click **Deploy**!
+This project is fully structured for instant deployment on GitHub Pages:
+1. Go to your repository **Settings** on GitHub.
+2. Navigate to **Pages** on the left sidebar.
+3. Under **Build and deployment**, set the **Source** to `Deploy from a branch`.
+4. Select the `main` branch and `/ (root)` folder, then click **Save**.
+5. Your premium web form is now live globally!
 
-## 🧪 Testing Locally
+## Testing Locally
 
 To test the frontend locally:
-- Simply double-click the `index.html` file to open it in your browser.
+- Simply double-click the `index.html` file to open it in your web browser. No server is required.
 
-To run the Python Flask API locally:
-```bash
-cd api
-pip install -r ../requirements.txt
-python index.py
-```
-*Note: Make sure to adjust your frontend `fetch` URL in `script.js` to point to `http://localhost:5000/api/predict` when testing locally.*
-
-## 📈 Model Requirements
-The provided API template is designed to load a `scikit-learn` model. To ensure accurate predictions, remember to mirror any data preprocessing steps (like `StandardScaler` or one-hot encoding) within `api/index.py` before passing the data to `model.predict()`.
+## Extending the App
+If you wish to integrate a real Machine Learning model in the future, you can easily wire the frontend `fetch` request in `script.js` to a Python Serverless Function (e.g. using Vercel or AWS Lambda).
