@@ -1,17 +1,9 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import os
 
-app = Flask(__name__, static_folder='../', static_url_path='/')
-
-@app.route('/')
-def serve_index():
-    return app.send_static_file('index.html')
-
-@app.route('/<path:path>')
-def serve_static(path):
-    return app.send_static_file(path)
+app = Flask(__name__)
 
 # Load the model when the function starts
 # Vercel serverless functions load from the root of the api folder or project
