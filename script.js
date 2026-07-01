@@ -22,25 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        try {
-            const response = await fetch('/api/predict', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            const result = await response.json();
-            
-            if (response.ok) {
-                showResult(result);
-            } else {
-                alert('Error from API: ' + (result.error || 'Unknown error'));
-                resetBtn.click();
-            }
-        } catch(err) {
-            console.error(err);
-            alert('Failed to connect to the prediction API.');
-            resetBtn.click();
-        }
+        // 3. Mock API Call / Prediction Logic
+        setTimeout(() => {
+            const prediction = mockPredict(data);
+            showResult(prediction);
+        }, 1500);
     });
 
     resetBtn.addEventListener('click', () => {
